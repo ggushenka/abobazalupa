@@ -386,13 +386,7 @@ Your daily percentage: {user.percent}%''', user_id, call.message.message_id, rep
 @dp.callback_query_handler(lambda c: c.data.startswith("info"), state='*')
 @dp.message_handler(lambda m: m.text == 'INFO ℹ️', state='*')
 async def user_info(call: typing.Union[types.CallbackQuery, types.Message]):
-    text = 'To work with our service you need to buy a tariff.
-
-📈 Tariff is the interest rate, your daily profit, which directly depends on the selected offer.
-
-💰 Deposit balance - the money that you invest in the development of the project and get a constant daily profit. The maximum payback period of the deposit is 100 days. The minimum - 50 days. Your funds are invested in equipment and project promotion, and cannot be withdrawn
-
-💸 You can withdraw the earned money every day, immediately after the accrual. And also, to spend them to buy another tariff or making a deposit account, which will increase your daily profit'
+    text = 'To work with our service you need to buy a tariff 📈 Tariff is the interest rate, your daily profit, which directly depends on the selected offer 💰 Deposit balance - the money that you invest in the development of the project and get a constant daily profit. The maximum payback period of the deposit is 100 days. The minimum - 50 days. Your funds are invested in equipment and project promotion, and cannot be withdrawn 💸 You can withdraw the earned money every day, immediately after the accrual. And also, to spend them to buy another tariff or making a deposit account, which will increase your daily profit'
     if isinstance(call, types.CallbackQuery):
         await bot.edit_message_text(text, call.from_user.id,
                                     call.message.message_id)
